@@ -1,7 +1,7 @@
 # Cisco_TextFSM
-Template collects data about power consumption from cisco devices. Output data may be couse of problem. I suggest to
-use divided templates ( for modules and separatly for interfaces )
-
+##Template collects data about power consumption from cisco devices. Output data may be couse of problem. I suggest to
+##use divided templates ( for modules and separatly for interfaces )
+'''
 SAMPLE DATA
 Module   Available     Used     Remaining
           (Watts)     (Watts)    (Watts)
@@ -17,3 +17,4 @@ Gi1/0/3   auto   on         13.0    GXP2170             0     30.0
 Gi1/0/4   auto   off        0.0     n/a                 n/a   30.0
 Gi1/0/5   auto   off        0.0     n/a                 n/a   30.0
 ...
+'''
