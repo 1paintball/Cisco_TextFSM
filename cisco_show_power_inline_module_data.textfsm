@@ -1,0 +1,22 @@
+#!/usr/bin/python3.10
+#__author__ = 'Rafal Woroniecki'
+#__email__ = 'rafalworoniecki@gmail.com'
+#Template collects data about power consumption from cisco devices in terms of modules
+#SAMPLE DATA
+#Module   Available     Used     Remaining
+#          (Watts)     (Watts)    (Watts)
+#------   ---------   --------   ---------
+#1           370.0      212.0       158.0
+#2           370.0      117.0       253.0
+Value MODULE (\d)
+Value AVAILABLE_WATTS (\d+.\d+)
+Value USED_WATTS (\d+.\d+)
+Value REMAINING_WATTS (\d+.\d+)
+
+Start
+ ^${MODULE}\s+${AVAILABLE_WATTS}\s+${USED_WATTS}\s+${REMAINING_WATTS} -> Record
+
+
+
+
+

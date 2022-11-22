@@ -1,0 +1,25 @@
+#!/usr/bin/python3.10
+#__author__ = 'Rafal Woroniecki'
+#__email__ = 'rafalworoniecki@gmail.com'
+#Template collects data about power consumption from cisco devices in terms of network interfaces
+#SAMPLE DATA
+#Interface Admin  Oper       Power   Device              Class Max
+#                            (Watts)
+#--------- ------ ---------- ------- ------------------- ----- ----
+#Gi1/0/1   auto   on         15.4    MikroTik            4     30.0
+#Gi1/0/2   auto   on         13.8    WirelessAP          4     30.0
+#Gi1/0/3   auto   on         13.0    GXP2170             0     30.0
+#Gi1/0/4   auto   off        0.0     n/a                 n/a   30.0
+#Gi1/0/5   auto   off        0.0     n/a                 n/a   30.0
+Value INTERFACE (\S+)
+Value ADMINISTRATION_STATE (\S+)
+Value OPERATE_STATE (\S+)
+Value POWER_CONSUMPTION (\d+.\d+)
+#Value DEVICE_MODEL (\S+)
+#match if DEVICE_MODEL string contains whitespace ( like "Some name with whitespaces")
+Value DEVICE_MODEL (([\x20-\x7E]{19}))
+Value POE_CLASS (\S+)
+Value MAXIMUM_POWER (\d+.\d+)
+
+Start
+ ^${INTERFACE}\s+${ADMINISTRATION_STATE}\s+${OPERATE_STATE}\s+${POWER_CONSUMPTION}\s+${DEVICE_MODEL}\s+${POE_CLASS}\s+${MAXIMUM_POWER} -> Record
